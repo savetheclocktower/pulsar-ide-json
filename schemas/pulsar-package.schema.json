@@ -1,0 +1,16 @@
+{
+  "$ref": "#/definitions/ConfigSchemaObject",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "JSON schema for Pulsar packages’ package.json files",
+  "definitions": {
+    "configSchema": {
+      "description": "An object defining configuration keys for this package.",
+      "type": ["object"],
+      "required": ["type"],
+      "properties": {
+        "title": { "type": "string" },
+        "url": { "type": "string" }
+      }
+    }
+  }
+}
