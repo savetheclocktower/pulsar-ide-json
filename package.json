@@ -38,6 +38,7 @@
       "order": 99,
       "properties": {
         "enableSchemaDownload": {
+          "title": "Enable Schema Download",
           "type": "boolean",
           "description": "When enabled, JSON schemas can be fetched from `http` and `https` locations.",
           "default": true,

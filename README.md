@@ -12,30 +12,42 @@ Rich language support for JSON files in Pulsar. Uses [vscode-langservers-extract
 
 ## TODO
 
-* Autocompletion isn’t quite perfect yet; it’ll insert the wrong thing if you’ve already typed quotation marks.
+* Validation (i.e., diagnostics) doesn’t seem to work yet.
 
 ## Configuring JSON schemas
 
-Any `$schema` property at the root of a JSON file will, if it references an `http`/`https` or `file` URL scheme, be used as the schema for that file.
-
-Other JSON schemas can be added — not through the settings UI, but via your `config.cson`. For each new JSON schema you want to add, create a new object property like so:
-
-```coffeescript
-"*":
-  "pulsar-ide-json":
-    "jsonSchemas":
-      "eslintrc":
-        "fileMatch": [".eslintrc", ".eslintrc.json"],
-        "uri": "https://json.schemastore.org/eslintrc.json"
-```
-
-The object property (`"eslintrc"` in the example above) is not used for anything, but it should be somewhat unique to reduce the chance of collisions. As for the properties:
-
-* `fileMatch` should be an array of glob-like patterns to match against files.
-* `uri` should have either an `http`/`https` scheme or a `file` scheme; in the latter case, it should point to an absolute path on disk. ~~It can also start with a relative path on disk, in which case it will be resolved relative to the project root (TODO).~~
+### Builtin schemas
 
 Several common schemas are included out of the box:
 
 * `tsconfig.json` and `jsconfig.json` (TypeScript configuration)
 * `package.json` (NPM metadata file)
 * `schema.json` (JSON Schema meta-schema)
+
+### Explicit schemas
+
+An explicit `$schema` property at the root of a JSON file will be used as the document’s schema if its value is either an `http`/`https` URL or a `file` URL that refers to an absolute path on disk.
+
+### Custom schemas
+
+Other JSON schemas can be added — not through the settings UI, but via your `config.cson`. For each new JSON schema you want to add, create a new object property like so:
+
+```coffeescript
+"*":
+  "pulsar-ide-json":
+    jsonSchemas:
+      eslintrc:
+        fileMatch: [".eslintrc", ".eslintrc.json"],
+        uri: "https://www.schemastore.org/eslintrc.json"
+```
+
+The key (`"eslintrc"` in the example above) is not used for anything, but it should be somewhat unique from other keys to avoid collisions. As for the properties:
+
+* `fileMatch` should be an array of glob-like patterns to match against files.
+* `uri` should have either an `http`/`https` scheme or a `file` scheme; in the latter case, it should point to an absolute path on disk. ~~It can also start with a relative path on disk, in which case it will be resolved relative to the project root (TODO).~~
+
+You can also define project-specific schemas with the help of a package like [atomic-management][] or [project-config][].
+
+
+[atomic-management]: https://web.pulsar-edit.dev/packages/atomic-management
+[project-config]: https://web.pulsar-edit.dev/packages/project-config
