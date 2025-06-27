@@ -14,9 +14,18 @@ Rich language support for JSON files in Pulsar. Uses [vscode-langservers-extract
 
 * Validation (i.e., diagnostics) doesn’t seem to work yet.
 
-## Configuring JSON schemas
+## Configuration
 
-### Builtin schemas
+### Node path
+
+> [!TIP]
+> Soon `pulsar-ide-json` will be able to use Pulsar’s built-in version of Node. For now, though, the built-in version is too old; you’ll have to tell the language server the path to your local version of Node.
+
+The version of Node inherited from your shell environment will usually suffice; if Pulsar fails to find it, you may specify the absolute path to your version of `node` in the “Path To Node Binary” configuration field.
+
+### JSON schemas
+
+#### Builtin schemas
 
 Several common schemas are included out of the box:
 
@@ -24,11 +33,11 @@ Several common schemas are included out of the box:
 * `package.json` (NPM metadata file)
 * `schema.json` (JSON Schema meta-schema)
 
-### Explicit schemas
+#### Explicit schemas
 
 An explicit `$schema` property at the root of a JSON file will be used as the document’s schema if its value is either an `http`/`https` URL or a `file` URL that refers to an absolute path on disk.
 
-### Custom schemas
+#### Custom schemas
 
 Other JSON schemas can be added — not through the settings UI, but via your `config.cson`. For each new JSON schema you want to add, create a new object property like so:
 

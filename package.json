@@ -22,15 +22,23 @@
   "dependencies": {
     "@savetheclocktower/atom-languageclient": "^1.17.14",
     "just-extend": "^6.2.0",
-    "vscode-langservers-extracted": "^4.10.0"
+    "vscode-langservers-extracted": "^4.10.0",
+    "which": "^2.0.2"
   },
   "configSchema": {
+    "nodeBin": {
+      "title": "Path To Node Binary",
+      "type": "string",
+      "default": "node",
+      "order": 1,
+      "description": "A string that can be resolved by a shell as pointing to a `node` binary. The default of `node` will usually work; you may hard-code an absolute path otherwise. (Reload the window after changing this value.)"
+    },
     "enableSymbols": {
       "title": "Enable Symbols",
       "description": "Whether to act as a symbol provider.",
       "type": "boolean",
       "default": true,
-      "order": 1
+      "order": 2
     },
     "serverSettings": {
       "title": "Server Settings",
