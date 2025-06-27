@@ -1,7 +1,7 @@
 {
   "name": "pulsar-ide-json",
   "main": "./lib/main",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Rich language support for JSON files in Pulsar",
   "keywords": [
     "ide",
