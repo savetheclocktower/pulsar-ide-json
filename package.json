@@ -26,13 +26,6 @@
     "which": "^2.0.2"
   },
   "configSchema": {
-    "nodeBin": {
-      "title": "Path To Node Binary",
-      "type": "string",
-      "default": "node",
-      "order": 1,
-      "description": "A string that can be resolved by a shell as pointing to a `node` binary. The default of `node` will usually work; you may hard-code an absolute path otherwise. (Reload the window after changing this value.)"
-    },
     "enableSymbols": {
       "title": "Enable Symbols",
       "description": "Whether to act as a symbol provider.",
