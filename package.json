@@ -154,7 +154,7 @@
     }
   },
   "devDependencies": {
-    "@types/atom": "^1.40.18",
+    "@types/atom": "npm:@pulsar-edit/types@^1.128.1",
     "@types/node": "^24.0.3",
     "ts-json-schema-generator": "^2.4.0"
   }
