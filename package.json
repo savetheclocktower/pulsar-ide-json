@@ -21,8 +21,8 @@
   },
   "dependencies": {
     "@savetheclocktower/atom-languageclient": "^1.17.14",
+    "@t1ckbase/vscode-langservers-extracted": "^0.1.15",
     "just-extend": "^6.2.0",
-    "vscode-langservers-extracted": "^4.10.0",
     "which": "^2.0.2"
   },
   "configSchema": {
